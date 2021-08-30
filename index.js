@@ -89,7 +89,7 @@ const colorearPuntuacion = (vote) => {
     }
 }
 
-formulario.addEventListener('submit', submitear = (e) => {
+formulario.addEventListener('keyup', submitear = (e) => {
 
     e.preventDefault();
     const buscarPeli = inputText.value.toUpperCase();
