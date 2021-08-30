@@ -42,11 +42,21 @@ $fourth: #4d194d;
 
 #main{
     display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding: 3%;
   width: 100%;
   height: 100vh;
   
+}
+
+.container-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .botonPuntuacion{
+        
+        
+        }
 }
 
 #formulario{
@@ -65,11 +75,46 @@ $fourth: #4d194d;
     }
 }
 
+.botonPuntuacion {
+    font-size: 1em;
+    background-color: $third;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    transition: all 0.8s ease;
+    overflow: hidden;
+        &:before,
+        &:after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 100%;
+        height: 100%;
+        left: 100%;
+        top: 1%;
+    }
+    &:after {
+        left: -100%;
+        clip-path: polygon(10% 0, 70% 0, 90% 100%, 30% 100%);
+        background-color: rgba(255, 255, 255, 0.6);
+        transition: all 300ms ease;
+      }
+    &:hover::after {
+        left: 100%;
+        top: 1%;
+      }
+  }
+
 .contenedor{
     display: grid;
     text-align: center;
     padding: 10px;
     
+}
+
+.movie-info{
+    width: 300px;
 }
 
 .tituloPuntuacion{
@@ -81,26 +126,30 @@ $fourth: #4d194d;
     .tituloh2{
         font-size: 2em;
         @extend %textShadow;
+        margin-bottom: 20px;
     }
-    .puntuacion{
-        padding: 10px;
-        border: 3px solid $primary;
-        border-radius: 10px;
-        font-weight: bold;
-        @extend %sombra;
-        margin-left: 10px;
-        @extend %textShadow;
-    }
+}
+
+.puntuacion{
+    padding: 10px;
+    border: 1px outset $primary;
+    border-radius: 5px;
+    font-weight: bold;
+    @extend %sombra;
+    margin-left: 10px;
+    @extend %textShadow;
 }
 
 .containerResumen{
     border: 1px outset $primary;
     padding: 10px;
     @extend %sombra;
+    
     h3{
         @extend %textShadow;
         padding: 10px;
         background-color: rgba(77, 25, 77, 0.3);
+        letter-spacing: 1px;
     }
     p{
         background-color: rgba(77, 25, 77, 0.3);
@@ -125,15 +174,8 @@ img:hover{
 }
 
 
-
-span.green{
-    color: green;
-}
-span.orange{
-    color: orange;
-}
-span.red{
-    color: red;
+.iconStar{
+    color: gold;
 }
 @media  screen and (max-width: 370px){
     #main{

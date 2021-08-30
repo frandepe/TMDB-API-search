@@ -10,13 +10,13 @@
   color: white;
 }
 
-#formulario #inputText, .tituloPuntuacion .puntuacion, .containerResumen, img {
+#formulario #inputText, .puntuacion, .containerResumen, img {
   box-shadow: 4px 4px 9px 1px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 4px 4px 9px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 4px 4px 9px 1px rgba(0, 0, 0, 0.75);
 }
 
-.tituloPuntuacion .tituloh2, .tituloPuntuacion .puntuacion, .containerResumen h3 {
+.tituloPuntuacion .tituloh2, .puntuacion, .containerResumen h3 {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
 }
 
@@ -24,11 +24,22 @@
 #main {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
   padding: 3%;
   width: 100%;
   height: 100vh;
+}
+
+.container-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #formulario {
@@ -49,11 +60,51 @@
   border: 1px outset white;
 }
 
+.botonPuntuacion {
+  font-size: 1em;
+  background-color: #312244;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  overflow: hidden;
+}
+
+.botonPuntuacion:before, .botonPuntuacion:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 100%;
+  top: 1%;
+}
+
+.botonPuntuacion:after {
+  left: -100%;
+  -webkit-clip-path: polygon(10% 0, 70% 0, 90% 100%, 30% 100%);
+          clip-path: polygon(10% 0, 70% 0, 90% 100%, 30% 100%);
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.botonPuntuacion:hover::after {
+  left: 100%;
+  top: 1%;
+}
+
 .contenedor {
   display: -ms-grid;
   display: grid;
   text-align: center;
   padding: 10px;
+}
+
+.movie-info {
+  width: 300px;
 }
 
 .tituloPuntuacion {
@@ -71,12 +122,13 @@
 
 .tituloPuntuacion .tituloh2 {
   font-size: 2em;
+  margin-bottom: 20px;
 }
 
-.tituloPuntuacion .puntuacion {
+.puntuacion {
   padding: 10px;
-  border: 3px solid #006466;
-  border-radius: 10px;
+  border: 1px outset #006466;
+  border-radius: 5px;
   font-weight: bold;
   margin-left: 10px;
 }
@@ -89,6 +141,7 @@
 .containerResumen h3 {
   padding: 10px;
   background-color: rgba(77, 25, 77, 0.3);
+  letter-spacing: 1px;
 }
 
 .containerResumen p {
@@ -110,16 +163,8 @@ img:hover {
   transition: all cubic-bezier(0.19, 0.92, 0.79, 0.96) 1s;
 }
 
-span.green {
-  color: green;
-}
-
-span.orange {
-  color: orange;
-}
-
-span.red {
-  color: red;
+.iconStar {
+  color: gold;
 }
 
 @media screen and (max-width: 370px) {

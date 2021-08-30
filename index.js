@@ -11,7 +11,7 @@ const container = document.getElementById('container');
 const main = document.getElementById('main');
 const formulario = document.getElementById('formulario');
 const inputText = document.getElementById('inputText');
-
+const buttonStars = document.getElementById('buttonStars');
 
 
 
@@ -33,6 +33,7 @@ const obtenerPeliculas = async () => {
 
 obtenerPeliculas();
 
+
 const mostrarPeliculas = (data) => {
     main.innerHTML = '';
 
@@ -49,23 +50,19 @@ const mostrarPeliculas = (data) => {
             <img src="${IMG_URL+poster_path} " alt="${title}">
             <div class="tituloPuntuacion">
                 <h2 class="tituloh2">${title}</h2>
-                <span class="puntuacion ${colorearPuntuacion(vote_average)}">${vote_average}</span>
+            </div>
+            <div>
+                <span class="puntuacion">${agregarEstrellas(vote_average)}</span>
             </div>
             <div class="containerResumen"> 
                 <h3 class="elh3">
-                Resumen
+                Sinopsis
                 </h3>
                 <p class="elp">
                 ${overview}
                 </p>
             </div>
         </div>
-
-       
-
-    
-
-
         `
 
         main.appendChild(pelicula);
@@ -76,16 +73,65 @@ const mostrarPeliculas = (data) => {
     
     
 }
+// ${colorearPuntuacion(vote_average)}
+// const colorearPuntuacion = (vote) => {
 
-const colorearPuntuacion = (vote) => {
-    if(vote >= 8){
-        return 'green';
+
+//     if(vote >= 8){
+//         return 'green';
+//     }
+//     else if(vote >= 6){
+//         return 'orange';
+//     }
+//     else if(vote >= 4){
+//         return 'orange2';
+//     }
+//     else if(vote >= 2){
+//         return 'red';
+//     }
+//     else{
+//         return 'red2';
+//     }
+// }
+
+const agregarEstrellas = (star) => {
+
+    const stars = document.innerText = `<i class="iconStar fas fa-star"></i>`;
+    const starsH = document.innerText = `<i class="iconStar fas fa-star-half-alt"></i>`;
+    const stars0 = document.innerText = `<i class="iconStar far fa-star"></i>`;
+
+    if(star >= 10){
+        return stars.repeat(5);
     }
-    else if(vote >= 6){
-        return 'orange';
+    else if(star >= 9){
+        return stars.repeat(4)+starsH;
     }
-    else{
-        return 'red';
+    else if(star >= 8){
+        return stars.repeat(4);
+    }
+    else if(star >= 7){
+        return stars.repeat(3)+starsH;
+    }
+    else if(star >= 6){
+        return stars.repeat(3);
+    }
+    else if(star >= 5){
+        return stars.repeat(2)+starsH;
+    }
+    else if(star >= 4){
+        return stars.repeat(2);
+    }
+    else if(star >= 3){
+        return stars+starsH;
+    }
+    else if(star >= 2){
+        return stars;
+    }
+    else if(star >= 1){
+        return starsH;
+    }
+    else if(star >= 0){
+        return stars0;
     }
 }
 
@@ -110,4 +156,17 @@ formulario.addEventListener('submit', submitear = (e) => {
     
     });
 
-    
+  
+buttonStars.addEventListener('click', ordenarPorPuntuacion = (e) =>{
+
+    e.preventDefault();
+
+    fetch(`${BASE_URL}/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&${API_KEY}`).then(res => res.json()).then(data => {
+        mostrarPeliculas(data.results);
+       
+    });
+
+        
+       
+    });
+
