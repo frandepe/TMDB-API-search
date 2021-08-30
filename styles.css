@@ -1,0 +1,121 @@
+@use 'base';
+@use 'mixins';
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #212f45;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+#formulario #inputText, .tituloPuntuacion .puntuacion, .containerResumen, img {
+  box-shadow: 4px 4px 9px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 4px 4px 9px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 9px 1px rgba(0, 0, 0, 0.75);
+}
+
+.tituloPuntuacion .tituloh2, .tituloPuntuacion .puntuacion, .containerResumen h3 {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* *** MAIN *** */
+#main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  padding: 3%;
+  width: 100%;
+  height: 100vh;
+}
+
+#formulario {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+}
+
+#formulario #inputText {
+  padding: 10px;
+  outline: none;
+  background-color: #312244;
+  font-size: 1em;
+  border: 1px outset white;
+}
+
+.contenedor {
+  display: -ms-grid;
+  display: grid;
+  text-align: center;
+  padding: 10px;
+}
+
+.tituloPuntuacion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px;
+}
+
+.tituloPuntuacion .tituloh2 {
+  font-size: 2em;
+}
+
+.tituloPuntuacion .puntuacion {
+  padding: 10px;
+  border: 3px solid #006466;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.containerResumen {
+  border: 1px outset #006466;
+  padding: 10px;
+}
+
+.containerResumen h3 {
+  padding: 10px;
+  background-color: rgba(77, 25, 77, 0.3);
+}
+
+.containerResumen p {
+  background-color: rgba(77, 25, 77, 0.3);
+  padding: 10px;
+}
+
+img {
+  width: 300px;
+  height: 400px;
+  -webkit-transition: all cubic-bezier(0.19, 0.92, 0.79, 0.96) 1s;
+  transition: all cubic-bezier(0.19, 0.92, 0.79, 0.96) 1s;
+}
+
+img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: all cubic-bezier(0.19, 0.92, 0.79, 0.96) 1s;
+  transition: all cubic-bezier(0.19, 0.92, 0.79, 0.96) 1s;
+}
+
+span.green {
+  color: green;
+}
+
+span.orange {
+  color: orange;
+}
+
+span.red {
+  color: red;
+}
+/*# sourceMappingURL=styles.css.map */

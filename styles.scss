@@ -1,0 +1,134 @@
+@use 'base';
+@use 'mixins';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #212f45;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+$primary: #006466;
+$secondary: #212f45;
+$third: #312244;
+$fourth: #4d194d;
+
+@mixin cuadrar ($largo) {
+    width: $largo + px;
+    height: $largo + px;
+}
+
+%flexer {
+    display: flex;
+    flex-wrap: wrap;
+}
+%sombra {
+    box-shadow: 4px 4px 9px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 4px 9px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 9px 1px rgba(0,0,0,0.75);
+}
+%textShadow {
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+}
+
+//Para usarlo:
+//@extend %flexer;
+
+/* *** MAIN *** */
+
+#main{
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 3%;
+  width: 100%;
+  height: 100vh;
+  
+}
+
+#formulario{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    #inputText{
+        padding: 10px;
+        outline: none;
+        background-color: $third;
+        font-size: 1em;
+        @extend %sombra;
+        border: 1px outset white;
+        
+    }
+}
+
+.contenedor{
+    display: grid;
+    text-align: center;
+    padding: 10px;
+    
+}
+
+.tituloPuntuacion{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+    .tituloh2{
+        font-size: 2em;
+        @extend %textShadow;
+    }
+    .puntuacion{
+        padding: 10px;
+        border: 3px solid $primary;
+        border-radius: 10px;
+        font-weight: bold;
+        @extend %sombra;
+        margin-left: 10px;
+        @extend %textShadow;
+    }
+}
+
+.containerResumen{
+    border: 1px outset $primary;
+    padding: 10px;
+    @extend %sombra;
+    h3{
+        @extend %textShadow;
+        padding: 10px;
+        background-color: rgba(77, 25, 77, 0.3);
+    }
+    p{
+        background-color: rgba(77, 25, 77, 0.3);
+        padding: 10px;
+    }
+}
+
+
+
+img{
+    width: 300px;
+    height: 400px;
+    transition: all cubic-bezier(.19,.92,.79,.96) 1s;
+    @extend %sombra;
+}
+
+img:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: all cubic-bezier(.19,.92,.79,.96) 1s;
+}
+
+
+
+span.green{
+    color: green;
+}
+span.orange{
+    color: orange;
+}
+span.red{
+    color: red;
+}

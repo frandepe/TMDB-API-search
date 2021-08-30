@@ -1,0 +1,14 @@
+@mixin cuadrar ($largo) {
+    width: $largo + px;
+    height: $largo + px;
+}
+
+// body{
+//     width: 900px;
+//     height: 900px;
+
+//    //Es reemplazado por:
+
+//     @include mixins.cuadrar(900);
+
+// }
