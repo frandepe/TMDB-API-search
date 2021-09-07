@@ -73,26 +73,6 @@ const mostrarPeliculas = (data) => {
     
     
 }
-// ${colorearPuntuacion(vote_average)}
-// const colorearPuntuacion = (vote) => {
-
-
-//     if(vote >= 8){
-//         return 'green';
-//     }
-//     else if(vote >= 6){
-//         return 'orange';
-//     }
-//     else if(vote >= 4){
-//         return 'orange2';
-//     }
-//     else if(vote >= 2){
-//         return 'red';
-//     }
-//     else{
-//         return 'red2';
-//     }
-// }
 
 const agregarEstrellas = (star) => {
 
@@ -161,7 +141,7 @@ buttonStars.addEventListener('click', ordenarPorPuntuacion = () =>{
 
    
 
-    fetch(`${BASE_URL}/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&${API_KEY}`).then(res => res.json()).then(data => {
+    fetch(`https://api.themoviedb.org/3/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&${API_KEY}`).then(res => res.json()).then(data => {
         mostrarPeliculas(data.results);
        
     });
