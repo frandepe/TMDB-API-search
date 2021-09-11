@@ -141,7 +141,7 @@ buttonStars.addEventListener('click', ordenarPorPuntuacion = async () =>{
 
    
     try{
-        await fetch(`${BASE_URL}/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&${API_KEY}`).then(res => res.json()).then(data => {
+        await fetch(`${BASE_URL}/discover/movie?primary_release_year=2021&sort_by=vote_average.desc&${API_KEY}`).then(res => res.json()).then(data => {
             mostrarPeliculas(data.results);
            
         });
