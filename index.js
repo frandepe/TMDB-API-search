@@ -137,16 +137,19 @@ formulario.addEventListener('submit', submitear = (e) => {
     });
 
   
-buttonStars.addEventListener('click', ordenarPorPuntuacion = () =>{
+buttonStars.addEventListener('click', ordenarPorPuntuacion = async () =>{
 
    
+    try{
+        await fetch(`${BASE_URL}/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&${API_KEY}`).then(res => res.json()).then(data => {
+            mostrarPeliculas(data.results);
+           
+        });
+    }catch(error){
+        console.log(error);
+    }
 
-    fetch(`https://api.themoviedb.org/3/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&${API_KEY}`).then(res => res.json()).then(data => {
-        mostrarPeliculas(data.results);
        
     });
 
-        
-       
-    });
 
